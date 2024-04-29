@@ -142,7 +142,7 @@ def run_eval():
     context.set_context(mode=context.GRAPH_MODE, enable_graph_kernel=False,
                         device_target=config.device_target, save_graphs=False)
     if os.getenv('DEVICE_ID', "not_set").isdigit() and config.device_target == "Ascend":
-        if context.get_context("device_id")!=config.device_id):
+        if (context.get_context("device_id")!=config.device_id):
             context.set_context(device_id=int(os.getenv('DEVICE_ID')))
 
     config.outputs_dir = os.path.join(config.log_path,
